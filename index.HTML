@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kamisaki - Consultoría de Puesta en Marcha Operativa, Eficiencia de Procesos, Marketing y Transformación Digital para PYMEs.">
+    <title>KAMISAKI | Puesta en Marcha Operativa y Transformación Digital</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        /* PALETA DE COLORES: Industrial Steel & Electric Cyan */
+        :root {
+            --bg-dark: #0F172A;         /* Azul Noche / Pizarra Oscuro */
+            --bg-card: #1E293B;        /* Gris Acero Azulado */
+            --accent-cyan: #06B6D4;     /* Cían Eléctrico */
+            --accent-orange: #38BDF8;   /* Azul Cielo / Acento Secundario */
+            --accent-violet: #64748B;   /* Gris Neutro */
+            --text-main: #F8FAFC;       /* Blanco / Gris Muy Claro */
+            --text-muted: #94A3B8;      /* Gris Medio Lectura */
+            --gradient-hero: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0F172A 100%);
+            --gradient-btn: linear-gradient(90deg, #06B6D4 0%, #0284C7 100%);
+            --gradient-accent: linear-gradient(90deg, #06B6D4 0%, #38BDF8 100%);
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ESTILOS DE IMÁGENES REUTILIZABLES */
+        .img-responsive {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+            display: block;
+            border: 1px solid rgba(6, 182, 212, 0.25);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(12px);
+            padding: 16px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(6, 182, 212, 0.2);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .logo span {
+            color: var(--accent-cyan);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 15px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .nav-btn {
+            background: var(--gradient-btn);
+            color: #ffffff !important;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 700 !important;
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(6, 182, 212, 0.5);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 100vh;
+            padding: 160px 8% 100px;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+            background: var(--gradient-hero);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.12) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            z-index: 2;
+        }
+
+        .hero-image {
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero-image img {
+            max-height: 480px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .tag {
+            display: inline-block;
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+            padding: 8px 18px;
+            border-radius: 4px;
+            margin-bottom: 25px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 5vw, 60px);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            color: #fff;
+        }
+
+        .hero h1 span {
+            color: var(--accent-cyan);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 36px;
+            background: var(--gradient-btn);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 6px;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(6, 182, 212, 0.5);
+        }
+
+        .btn-outline {
+            margin-left: 15px;
+            background: transparent;
+            border: 1px solid var(--text-muted);
+            color: var(--text-main);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: #fff;
+            color: #fff;
+        }
+
+        /* GENERAL SECTIONS */
+        section {
+            padding: 100px 8%;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title small {
+            color: var(--accent-cyan);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 13px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            font-weight: 800;
+            margin-top: 10px;
+            color: #fff;
+        }
+
+        .section-title p {
+            max-width: 750px;
+            margin: 15px auto 0;
+            color: var(--text-muted);
+            font-size: 17px;
+        }
+
+        /* PRESENTACIÓN Y NOSOTROS */
+        .presentation {
+            background: #0B1120;
+            width: 100%;
+            padding: 100px 8%;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .presentation-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 45px;
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        .presentation-left-column {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .presentation-image-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1cm;
+            width: 100%;
+        }
+
+        .presentation-image-group img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+            border: 1px solid #1e293b;
+        }
+
+        .presentation-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .presentation-text h3 {
+            font-size: 1.6rem;
+            color: #38bdf8;
+            font-weight: 800 !important;
+            margin-bottom: 18px;
+            position: relative;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        .presentation-text h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: #38bdf8;
+            border-radius: 2px;
+        }
+
+        .presentation-text p {
+            font-size: 0.98rem;
+            line-height: 1.7;
+            color: #ffffff !important;
+            font-weight: 700 !important;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .mv-card,
+        .stats.stats-custom-color {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 22px;
+            text-align: center !important;
+            width: 100%;
+            max-width: 500px;
+            margin: 15px auto !important;
+            box-sizing: border-box;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .mv-card h4 {
+            color: #38bdf8;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: 800 !important;
+            text-transform: uppercase;
+            text-align: center !important;
+        }
+
+        .mv-card p {
+            color: #ffffff !important;
+            font-weight: 700 !important;
+            font-size: 0.92rem;
+            line-height: 1.6;
+            text-align: center !important;
+            margin: 0 auto !important;
+        }
+
+        .stats.stats-custom-color {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .stats.stats-custom-color .stat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .stats.stats-custom-color .stat h3 {
+            color: #38bdf8;
+            font-size: 1.75rem;
+            font-weight: 800 !important;
+            margin-bottom: 4px;
+        }
+
+        .stats.stats-custom-color .stat p {
+            color: #ffffff !important;
+            font-size: 0.88rem;
+            font-weight: 700 !important;
+            text-transform: uppercase;
+        }
+
+        .mission-vision-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            width: 100%;
+            max-width: 500px;
+            margin: 15px auto 0 auto;
+        }
+
+        /* PROBLEMAS DEL SECTOR CON IMÁGENES */
+        .problem {
+            background: var(--bg-dark);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .problem-card {
+            border-radius: 8px;
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.3s;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .problem-card:hover {
+            border-color: rgba(6, 182, 212, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transform: translateY(-4px);
+        }
+
+        .problem-card-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(6, 182, 212, 0.2);
+        }
+
+        .problem-card-body {
+            padding: 25px;
+        }
+
+        .problem-card h3 {
+            color: #fff;
+            margin-bottom: 10px;
+            font-size: 19px;
+        }
+
+        .problem-card p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* SERVICIOS CON IMÁGENES */
+        .services {
+            background: #0B1120;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        }
+
+        .service-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(6, 182, 212, 0.2);
+        }
+
+        .service-content {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .number {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--accent-cyan);
+            margin-bottom: 5px;
+        }
+
+        .service-card h3 {
+            margin: 5px 0 10px;
+            font-size: 24px;
+            color: #fff;
+        }
+
+        .service-card h4 {
+            color: var(--accent-orange);
+            margin-bottom: 20px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .service-card ul {
+            list-style: none;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .service-card li {
+            margin: 12px 0;
+            padding-left: 24px;
+            position: relative;
+            font-size: 15px;
+        }
+
+        .service-card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent-cyan);
+            font-weight: bold;
+        }
+
+        /* MÉTODO P.A.S.O.D. - CONFIGURACIÓN EN UNA SOLA FILA */
+        .paso {
+            background: var(--bg-dark);
+        }
+
+        .paso-banner {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 50px;
+            border: 1px solid rgba(6, 182, 212, 0.2);
+        }
+
+        .paso-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* 5 columnas iguales en una sola fila */
+            gap: 15px;
+            width: 100%;
+        }
+
+        .paso-card {
+            padding: 25px 15px;
+            background: var(--bg-card);
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .paso-letter {
+            width: 54px;
+            height: 54px;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+            border-radius: 50%;
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        .paso-card h3 {
+            margin-bottom: 10px;
+            color: #fff;
+            font-size: 18px;
+        }
+
+        .paso-card p {
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        /* OPORTUNIDAD & GARANTÍA */
+        .opportunity {
+            background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+            border-top: 1px solid rgba(6, 182, 212, 0.2);
+            border-bottom: 1px solid rgba(6, 182, 212, 0.2);
+            text-align: center;
+        }
+
+        .opportunity-content {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .opportunity h2 {
+            font-size: 38px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .opportunity p {
+            font-size: 18px;
+            color: var(--text-muted);
+        }
+
+        .quote {
+            margin: 35px 0;
+            padding: 30px;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid var(--accent-cyan);
+            border-radius: 8px;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--accent-cyan);
+        }
+
+        /* CLIENTES CON IMÁGENES */
+        .clients {
+            background: #0B1120;
+        }
+
+        .client-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .client-card {
+            border-radius: 8px;
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.05);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .client-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(6, 182, 212, 0.2);
+        }
+
+        .client-card-body {
+            padding: 30px;
+        }
+
+        .client-card h3 {
+            margin-bottom: 15px;
+            font-size: 20px;
+            color: #fff;
+        }
+
+        .client-card p {
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        /* CTA CON IMAGEN DE FONDO */
+        .cta {
+            position: relative;
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(11, 17, 32, 0.95)), 
+                        url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            text-align: center;
+            color: #fff;
+            padding: 100px 8%;
+            border-top: 1px solid rgba(6, 182, 212, 0.2);
+        }
+
+        .cta h2 {
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 18px;
+        }
+
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 35px;
+            font-size: 19px;
+            color: var(--text-muted);
+        }
+
+        /* FOOTER */
+        footer {
+            background: #060913;
+            color: var(--text-muted);
+            padding: 50px 8% 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            color: white;
+            font-size: 26px;
+            font-weight: 800;
+        }
+
+        .footer-logo span {
+            color: var(--accent-cyan);
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 20px;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 25px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .paso-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            nav ul { display: none; }
+            .hero, .presentation-grid, .client-grid, .mission-vision-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 40px; }
+            .btn-outline { margin-left: 0; margin-top: 15px; }
+            .footer-content { flex-direction: column; }
+            .footer-links a { margin-left: 0; margin-right: 15px; }
+        }
+
+        @media (max-width: 600px) {
+            .paso-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVEGACIÓN -->
+    <nav>
+        <div class="logo">KAMISAKI<span>.</span></div>
+
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#metodo">Método P.A.S.O.</a></li>
+            <li><a href="#contacto" class="nav-btn">Agenda Diagnóstico</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- INICIO (HERO SECTION CON IMAGEN DE PORTADA) -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <span class="tag">Consultoría Operativa & Transformación Digital</span>
+
+            <h1>
+                Transformamos tu Capital en<br>
+                <span>Líneas Productivas Rentables.</span>
+            </h1>
+
+            <p>
+                Cerramos la brecha entre la disponibilidad de capital y la ejecución técnica. Acompañamos a nuevos inversionistas y PYMEs a estructurar plantas, eliminar fugas de dinero y digitalizar su operación con el <strong>Método P.A.S.O.D.</strong>
+            </p>
+
+            <div>
+                <a href="#contacto" class="btn">Solicitar Diagnóstico en Planta</a>
+                <a href="#servicios" class="btn btn-outline">Ver Servicios</a>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <!-- IMAGEN 1: HERO PORTADA -->
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" alt="Ingeniería e Industria" class="img-responsive">
+        </div>
+    </section>
+
+
+    <!-- PRESENTACIÓN Y NOSOTROS -->
+    <section class="presentation" id="nosotros">
+
+        <div class="section-title">
+            <small>¿Quiénes somos?</small>
+            <h2>Ingeniería Operativa Presencial y Cero Teoría</h2>
+            <p>
+                Democratizamos la ingeniería industrial y la transformación digital. No entregamos reportes de escritorio; nos involucramos directamente en planta.
+            </p>
+        </div>
+
+        <div class="presentation-grid">
+
+            <!-- COLUMNA IZQUIERDA: IMÁGENES + PROPUESTA DE VALOR + STATS -->
+            <div class="presentation-left-column">
+                
+                <!-- Contenedor de Imágenes (Separadas por 1 cm exacto) -->
+                <div class="presentation-image-group">
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&h=350&q=80" alt="Trabajo presencial en planta" class="img-responsive">
+                    <img src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&w=600&h=350&q=80" alt="Optimización de procesos industriales" class="img-responsive">
+                </div>
+
+                <!-- Tarjeta de Propuesta de Valor -->
+                <div class="mv-card feature-highlight">
+                    <h4>Propuesta de Valor</h4>
+                    <p>Acompañamiento en planta 100% práctico y sin teoría vacía. Diseñamos soluciones a la medida para convertir la complejidad técnica en negocios rentables, seguros y escalables.</p>
+                </div>
+
+                <!-- ESTADÍSTICAS / MÉTRICAS -->
+                <div class="stats stats-custom-color">
+                    <div class="stat">
+                        <h3>100%</h3>
+                        <p>Evaluación Neutral</p>
+                    </div>
+
+                    <div class="stat">
+                        <h3>P.A.S.O.D.</h3>
+                        <p>Metodología Propia</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- COLUMNA DERECHA: TEXTO + MISIÓN Y VISIÓN -->
+            <div class="presentation-text">
+
+                <h3>Solucionamos la Brecha de Inversión</h3>
+
+                <p>
+                    Existe una gran acumulación de capital comercial en el mercado, pero la transición hacia proyectos productivos suele fracasar por falta de criterio técnico en la selección de maquinaria, dimensionamiento de planta y control de mermas.
+                </p>
+
+                <p>
+                    En <strong>KAMISAKI</strong> nos posicionamos como tu <strong>socio técnico neutral</strong>. Ayudamos a nuevos inversionistas a lanzar proyectos "Llave en Mano" y a empresas establecidas a frenar pérdidas operativas y acelerar su presencia digital.
+                </p>
+
+                <!-- MISIÓN Y VISIÓN (2 COLUMNAS) -->
+                <div class="mission-vision-grid">
+                    <div class="mv-card">
+                        <h4>Misión</h4>
+                        <p>Ser el aliado estratégico de emprendedores y PYMEs, ayudándolos a transformar ideas en negocios rentables mediante estrategias, procesos claros y gestión eficiente de sus recursos.</p>
+                    </div>
+
+                    <div class="mv-card">
+                        <h4>Visión</h4>
+                        <p>Ser la consultora referente para la creación y transformación de PYMEs, reconocida por convertir ideas en negocios sólidos e impulsar empresas competitivas en Bolivia.</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 25px; width: 100%;">
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&h=350&q=80" alt="Ingenieros en control de planta" class="img-responsive">
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- PROBLEMAS DEL SECTOR CON IMÁGENES -->
+    <section class="problem">
+
+        <div class="section-title">
+            <small>El Desafío</small>
+            <h2>¿Qué está frenando el crecimiento de tu negocio?</h2>
+            <p>
+                Estructurar un negocio productivo requiere más que dinero; exige gestión técnica especializada.
+            </p>
+        </div>
+
+        <div class="problem-grid">
+
+            <!-- PROBLEMA 1 -->
+            <div class="problem-card">
+                <img src="https://images.unsplash.com/photo-1531973576160-7125cd663d86?auto=format&fit=crop&w=600&q=80" alt="Maquinaria Sobredimensionada" class="problem-card-img">
+                <div class="problem-card-body">
+                    <h3>Maquinaria Sobredimensionada</h3>
+                    <p>
+                        Comprar equipos inadecuados por recomendación directa de vendedores de maquinaria sin una evaluación técnica neutral previa.
+                    </p>
+                </div>
+            </div>
+
+            <!-- PROBLEMA 2 -->
+            <div class="problem-card">
+                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" alt="Fugas de dinero" class="problem-card-img">
+                <div class="problem-card-body">
+                    <h3>Fugas de Dinero Ocultas</h3>
+                    <p>
+                        Pérdidas continuas por mermas de material sin medir, tiempos muertos, desperdicios y compras de insumos sobrecostosas.
+                    </p>
+                </div>
+            </div>
+
+            <!-- PROBLEMA 3 -->
+            <div class="problem-card">
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80" alt="Dependencia Empírica" class="problem-card-img">
+                <div class="problem-card-body">
+                    <h3>Dependencia Empírica</h3>
+                    <p>
+                        Falta de procesos estandarizados (SOPs). Operaciones que dependen de personas clave sin manuales ni registros claros.
+                    </p>
+                </div>
+            </div>
+
+            <!-- PROBLEMA 4 -->
+            <div class="problem-card">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Invisibilidad Digital" class="problem-card-img">
+                <div class="problem-card-body">
+                    <h3>Invisibilidad Digital</h3>
+                    <p>
+                        Marcas con gran potencial operativo pero estancadas comercialmente por no contar con ecosistema digital ni captación activa.
+                    </p>
+                </div>
+            </div>
+
+            <!-- PROBLEMA 5 -->
+            <div class="problem-card">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80" alt="Fugas Operativas Invisibles" class="problem-card-img">
+                <div class="problem-card-body">
+                    <h3>Fugas Operativas Invisibles</h3>
+                    <p>
+                        Pérdidas silenciosas de dinero generadas por micro-desperdicios de insumos, fallas de inventario y sobrecostos que no se reflejan en los balances tradicionales.
+                    </p>
+                </div>
+            </div>
+
+            <!-- PROBLEMA 6 -->
+            <div class="problem-card">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1000&q=80" alt="Cuellos de Botella Invisibles" class="problem-card-img">
+                <div class="problem-card-body">
+                    <h3>Cuellos de Botella Invisibles en Producción</h3>
+                    <p>
+                        Puntos de congestión en la línea productiva por desbalanceo de cargas, tiempos muertos desapercibidos y falta de sincronía entre estaciones de trabajo.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- SERVICIOS INTEGRALES CON IMÁGENES -->
+    <section class="services" id="servicios">
+
+        <div class="section-title">
+            <small>Líneas de Servicios</small>
+            <h2>Soluciones de Alto Impacto Comercial</h2>
+            <p>
+                Acompañamiento integral desde la idea inicial hasta la optimización digital en empresas en marcha.
+            </p>
+        </div>
+
+        <div class="service-grid">
+
+            <!-- SERVICIO 1 -->
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1581091215367-9b6c00b3035a?auto=format&fit=crop&w=600&q=80" alt="Launchpad Puesta en Marcha" class="service-img">
+                <div class="service-content">
+                    <div class="number">01</div>
+                    <h3>Launchpad</h3>
+                    <h4>Nuevos Inversionistas (Puesta en marcha)</h4>
+                    <ul>
+                        <li>Ingeniería de Producto y Procesos.</li>
+                        <li>Evaluación de Proveedores.</li>
+                        <li>Diseño operativo y Layout.</li>
+                        <li>Manuales Operativos y Capacitación.</li>
+                        <li>Prueba de Producción.</li>
+                    </ul>
+                    <a href="#contacto" class="btn" style="margin-top:auto; font-size:14px; text-align:center;">Lanzar Mi Proyecto</a>
+                </div>
+            </div>
+
+            <!-- SERVICIO 2 -->
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&w=600&q=80" alt="Optimization Planta" class="service-img">
+                <div class="service-content">
+                    <div class="number">02</div>
+                    <h3>Optimización</h3>
+                    <h4>Empresas Establecidas (Reducción de Costos)</h4>
+                    <ul>
+                        <li>Diagnóstico de Eficiencia Operativa.</li>
+                        <li>Optimización y Estandarización.</li>
+                        <li>Control y Optimización de Mermas.</li>
+                        <li>Lean Manufacturing Simplificado.</li>
+                        <li>Implementación de KPIs Operativos.</li>
+                        <li>Gestión de Mantenimiento y confiabilidad operativa.</li>
+                    </ul>
+                    <a href="#contacto" class="btn" style="margin-top:auto; font-size:14px; text-align:center;">Optimizar Mi Planta</a>
+                </div>
+            </div>
+
+            <!-- SERVICIO 3 -->
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Digital Core" class="service-img">
+                <div class="service-content">
+                    <div class="number">03</div>
+                    <h3>Digital Core</h3>
+                    <h4>Marketing & Transformación Digital</h4>
+                    <ul>
+                        <li>Diagnóstico e implementación (WEB).</li>
+                        <li>Impulso Digital (Branding + Web + Redes).</li>
+                        <li>Transformación Digital (CRM + Auto).</li>
+                        <li>Estrategia de Marketing Continuo.</li>
+                        <li>Posicionamiento de Marca y Leads.</li>
+                        <li>Alineación Ventas vs Capacidad.</li>
+                    </ul>
+                    <a href="#contacto" class="btn" style="margin-top:auto; font-size:14px; text-align:center;">Digitalizar Mi Negocio</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- METODO PASO CON BANNER DE IMAGEN -->
+    <section class="paso" id="metodo">
+
+        <div class="section-title">
+            <small>Nuestra Metodología Propietaria</small>
+            <h2>El Método P.A.S.O.D.</h2>
+            <p>
+                Ruta estructurada para transformar capital e ideas en operaciones rentables y escalables.
+            </p>
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" alt="Metodología P.A.S.O. en Acción" class="paso-banner">
+
+        <div class="paso-grid">
+
+            <div class="paso-card">
+                <div class="paso-letter">P</div>
+                <h3>Proyección</h3>
+                <p>
+                    Análisis del producto, dimensionamiento técnico de maquinaria y evaluación de factibilidad real.
+                </p>
+            </div>
+
+            <div class="paso-card">
+                <div class="paso-letter">A</div>
+                <h3>Aprovisionamiento</h3>
+                <p>
+                    Sourcing neutral de proveedores de equipos y negociación estratégica de materias primas (BOM).
+                </p>
+            </div>
+
+            <div class="paso-card">
+                <div class="paso-letter">S</div>
+                <h3>Secuencia</h3>
+                <p>
+                    Diseño de Layout eficiente, balanceo de flujos de trabajo y creación de manuales SOPs visuales.
+                </p>
+            </div>
+
+            <div class="paso-card">
+                <div class="paso-letter">O</div>
+                <h3>Optimización</h3>
+                <p>
+                    Acompañamiento en primera corrida, control de mermas, medición de KPIs y calibración de costos reales.
+                </p>
+            </div>
+
+            <div class="paso-card">
+                <div class="paso-letter">D</div>
+                <h3>Digitalización</h3>
+                <p>
+                    Integración de herramientas digitales, presencia web estratégica y automatización comercial del negocio.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- OPORTUNIDAD Y PROPUESTA DE VALOR -->
+    <section class="opportunity">
+        <div class="opportunity-content">
+            <h2>El Socio Técnico que tu Inversión Necesita</h2>
+            <p>
+                No dejamos informes en papel. Nos metemos al terreno junto a tu equipo para garantizar que cada unidad de capital invertida genere rentabilidad.
+            </p>
+
+            <div class="quote">
+                “Democratizamos la ingeniería de procesos y la digitalización para las PYMEs.”
+            </div>
+
+            <p style="font-size: 16px; color: var(--text-muted);">
+                Especializados en consultoría presencial y cobertura global bajo un modelo de acompañamiento híbrido.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- CLIENTES Y PERFILES CON IMÁGENES -->
+    <section class="clients">
+
+        <div class="section-title">
+            <small>Segmentos Atendidos</small>
+            <h2>Diseñado para Inversionistas y PYMEs</h2>
+        </div>
+
+        <div class="client-grid">
+
+            <!-- CLIENTE 1 -->
+            <div class="client-card">
+                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80" alt="Inversor Empírico">
+                <div class="client-card-body">
+                    <h3>💼 El Inversor Empírico (Nuevos Negocios)</h3>
+                    <p>
+                        Comerciantes, profesionales e inversionistas con capital disponible que buscan ingresar al sector productivo (alimentos, cosmética, textil, manufactura ligera) de forma segura y sin cometer errores costosos de equipamiento.
+                    </p>
+                </div>
+            </div>
+
+            <!-- CLIENTE 2 -->
+            <div class="client-card">
+                <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=600&q=80" alt="Empresario Tradicional">
+                <div class="client-card-body">
+                    <h3>🏢 El Empresario Tradicional (Empresas Activas)</h3>
+                    <p>
+                        Dueños de PYMEs industriales o comerciales que sufren por la reducción de márgenes, desperdicio de materiales, falta de procesos y débil presencia digital.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- CALL TO ACTION CON IMAGEN DE FONDO -->
+    <section class="cta" id="contacto">
+        <h2>¿Listo para Convertir tu Inversión en Rentabilidad?</h2>
+        <p>
+            Agenda hoy un Diagnóstico Preliminar en Planta o una Sesión de Evaluación para tu Nuevo Proyecto.
+        </p>
+
+        <a href="mailto:contacto@kamisaky.com" class="btn">
+            Agendar Diagnóstico Operativo
+        </a>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <div class="footer-logo">KAMISAKI<span>.</span></div>
+                <p style="margin-top:10px; max-width:400px;">
+                    Consultora de Puesta en Marcha Operativa, Eficiencia de Procesos, Mantenimiento y Transformación Digital.
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <a href="#inicio">Inicio</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#metodo">Método P.A.S.O.</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+        </div>
+
+        <div class="copyright">
+            © 2026 KAMISAKI. Proyecto de Creación de Consultora - Autor: Pablo Gil y Pablo Ibañez. Todos los derechos reservados.
+        </div>
+    </footer>
+
+</body>
+</html>
